@@ -1,0 +1,188 @@
+@import 'variables';
+@import 'mixin';
+
+*{
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    width: 100vw;
+    height: 850px;
+    background: $VeryMainBackground;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: $Font;
+    font-size: $FontSize;
+}
+
+.calculator{
+    &__container{
+        @include combinedHeights(375px, 670px, 545px, 719px);
+        padding: 25px 30px;
+    }
+    &__nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    &__title{
+        color: $White;
+        font-weight: 700;
+        font-size: 1em;
+    }
+    &__theme{
+        display: flex;
+        align-items: end;
+        gap: 28px;
+        color: $White;
+        font-size: .45em;
+        &-title{
+            font-weight: 400;
+        }
+        &-buttons{
+            display: flex;
+            flex-direction: column;
+        }
+        &-list{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 10px;
+            margin-bottom: 2px;
+        }
+        &-actions{
+            display: inline-block;
+            font-size: .8em;
+        }
+        &-button-container{
+            background-color: $VeryToggleBackground;
+            width: 70px;
+            height: 25px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+        &-button-action{
+            width: 15px;
+            height: 15px;
+            background: $Red;
+            border-radius: 50%;
+            &:hover{
+                cursor: pointer;
+                background: $Redbg;
+            }
+        }
+    }
+    &__screen{
+        @include combinedHeights(322px, 90px, 484px, 131px);
+        background: $VeryScreenBackground;
+        border-radius: 10px;
+        color: $White;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 25px;
+        font-size: 1.4em;
+        margin-bottom: 20px;
+        padding: 15px 25px;
+        &-container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+        &-text-min{
+            font-size: .5em;
+            opacity: .85;
+        }
+    }
+    &__numbers-container{
+        @include combinedHeights(320px, 420px, 484px, 485px);
+        background: $VeryToggleBackground;
+        border-radius: 10px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        padding: 20px;
+        color: $VeryDarkGrayishBlue;
+    }
+    &__number{
+        @include widthAndHeight(60px, 60px, $LightGrayishOrange, $GrayishOrange, $VeryDarkGrayishBlue, 100px, 60px);
+        @include flexKeys;
+        font-weight: 700;
+        font-size: 1.1em;
+            &:hover{
+                cursor: pointer;
+                background: $LightGrayishOrangebg
+            }
+        &-del{
+            @include widthAndHeight(60px, 60px, $DesaturatedDarkBlue1, $DesaturatedDarkBlue2, $White, 100px, 60px);
+            @include flexKeys;
+            font-size: .6em;
+            font-weight: 700;
+            &:hover{
+                cursor: pointer;
+                background: $DesaturatedDarkBlue3
+            }
+        }
+        &-reset{
+            @include widthAndHeight(130px, 60px, $DesaturatedDarkBlue1, $DesaturatedDarkBlue2, $White, 208px, 60px);
+            @include flexKeys;
+            grid-column: 1/3;
+            font-size: .7em;
+            font-weight: 700;
+            &:hover{
+                cursor: pointer;
+                background: $DesaturatedDarkBlue3
+            }
+        }
+        &-equal{
+            @include widthAndHeight(130px, 60px, $Red, $DarkRed, $White, 208px, 60px);
+            @include flexKeys;
+            grid-column: 3/5;
+            &:hover{
+                cursor: pointer;
+                background: $Redbg;
+            }
+        }
+    }
+}
+
+.attribution{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 320px;
+    height: 50px;
+    margin-bottom: 25px;
+    font-size: .4em;
+    background: $VeryScreenBackground;
+    border-radius: 8px;
+    padding: 10px;
+    color: $White;
+    a{
+        color: $VeryDarkGrayishBlue;
+        &:hover{
+            color: $White;
+        }
+    }
+    @media (min-width: 1115px){
+        margin-top: 20px;
+        width: 483px;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+    }
+}
+
+
